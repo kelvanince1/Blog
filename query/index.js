@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const axios = require('axios');
 
 const app = express();
 app.use(cors());
@@ -20,10 +21,6 @@ const handleEvent = (type, data) => {
 
         const post = posts[postId];
         post.comments.push({ id, content, status });
-
-        console.log(posts);
-
-        res.send({});
     }
 
     if (type === 'CommentUpdated') {
